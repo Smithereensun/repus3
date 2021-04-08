@@ -1,0 +1,58 @@
+  #自定义图片保存位置
+file-save-path: F:\User\yeb-master\yeb-server\src\main\resources\static\img\
+
+jwt:
+    expiration: 604800
+    secret: yeb-secret
+    tokenHead: Bearer
+    tokenHeader: Authorization
+logging:
+    level:
+        com:
+            xxx:
+                server:
+                    mapper: debug
+mybatis-plus:
+    mapper-locations: classpath*:/mapper/*Mapper.xml
+    type-aliases-package: com.xxx.server.pojo
+server:
+    port: 8081
+    tomcat:
+        remote-ip-header: x-forward-for
+        uri-encoding: UTF-8
+        max-threads: 1000
+        max-http-header-size: 8096
+spring:
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        hikari:
+            auto-commit: true
+            connection-test-query: SELECT 1
+            connection-timeout: 30000
+            idle-timeout: 180000
+            max-lifetime: 1800000
+            maximum-pool-size: 10
+            minimum-idle: 5
+            pool-name: DateHikariCP
+        password: 123456
+        url: jdbc:mysql://localhost:3306/yeb?characterEncoding=utf-8&useSSL=false&serverTimezone=Hongkong
+        username: root
+    rabbitmq:
+        host: 172.16.100.4
+        password: guest
+        port: 5672
+        publisher-confirm-type: correlated
+        publisher-returns: true
+        username: guest
+    redis:
+        database: 1
+        password: 123456
+        host: 127.0.0.1
+        lettuce:
+            pool:
+                max-active: 1024
+                max-idle: 200
+                max-wait: 10000ms
+                min-idle: 5
+        port: 6379
+        timeout: 10000s
